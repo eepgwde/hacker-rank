@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 # Sample usage:
-# run -j EntryPoint
-# EntryPoint might be ArrayLeftRotation
+# run -j ArrayLeftRotation2 < src/main/resources/data
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.."
 cd "$DIR"
