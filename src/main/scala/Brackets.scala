@@ -2,7 +2,7 @@ import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 import java.util
 
 /** Solution to https://www.hackerrank.com/challenges/ctci-making-anagrams */
-class Solution(in: InputStream) {
+class Brackets(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader = new BufferedReader(inputStreamReader)
   val lineCount: Int = bufferedReader.readLine.mkString.toInt
@@ -38,7 +38,7 @@ class Solution(in: InputStream) {
   }
 }
 
-object Solution extends App {
-  new Solution(new FileInputStream("src/main/resources/brackets.data"))
-//  new Solution(System.in)
+object Brackets extends App {
+  new Brackets(new FileInputStream("src/main/resources/brackets.data"))
+//  new Brackets(System.in)
 }
