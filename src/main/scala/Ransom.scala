@@ -1,5 +1,6 @@
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 
+/** Solution to https://www.hackerrank.com/challenges/ctci-ransom-note */
 class Ransom(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader    = new BufferedReader(inputStreamReader)

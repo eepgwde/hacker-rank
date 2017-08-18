@@ -1,7 +1,7 @@
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 import java.util
 
-/** Solution to https://www.hackerrank.com/challenges/ctci-making-anagrams */
+/** Solution to https://www.hackerrank.com/challenges/ctci-balanced-brackets */
 class Brackets(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader = new BufferedReader(inputStreamReader)
