@@ -16,7 +16,7 @@ class Brackets(in: InputStream) {
 
   def isBalanced(line: String): Boolean = isEven(line) && {
     val s = new util.ArrayDeque[Char]
-    line forall {
+    val result = line forall {
         case '{' =>
           s.push('}')
           true
@@ -35,6 +35,7 @@ class Brackets(in: InputStream) {
             true
           }
     }
+    result && s.isEmpty
   }
 }
 
