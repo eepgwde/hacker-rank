@@ -1,37 +1,35 @@
 import java.io.{FileInputStream, InputStream, InputStreamReader}
-import java.util
 import java.util.Scanner
 import scala.collection.Searching._
+import scala.collection.mutable
 
 /** Solution to https://www.hackerrank.com/challenges/ctci-find-the-running-median */
 class RunningMedian(inStream: InputStream) {
-  val data: util.List[java.lang.Integer] = new util.ArrayList[java.lang.Integer]()
+  // The key to this solution is that this array is maintained in sorted order:
+  val data: mutable.ArrayBuffer[Int] = mutable.ArrayBuffer.empty[Int]
 
   val inputStreamReader = new InputStreamReader(inStream)
   val in: Scanner = new Scanner(inStream)
   val lineCount: Int = in.nextInt()
 
   1 to lineCount foreach { _ =>
-    val int: java.lang.Integer = in.nextInt()
+    val newItem: Int = in.nextInt()
     val pos: Int = {
-      val p = util.Collections.binarySearch(data, int)
-      if (p < 0) Math.abs(p) - 1 else p
+      val insertionPoint = data.search(newItem).insertionPoint
+      if (insertionPoint < 0) math.abs(insertionPoint) - 1 else insertionPoint
     }
-    data.add(pos, int)
+    data.insert(pos, newItem) // insert into sorted position
     println(f"${ median(data) }%.1f")
   }
 
-  def average(a: Int, b: Int): Double = (a + b) / 2.0
-
-  def isEven(i: Int): Boolean = (i % 2) == 0
   def isOdd(i: Int): Boolean = (i % 2) == 1
 
-  def median(data: util.List[Integer]): Double = {
-    if (isOdd(data.size))
-      data.get(data.size / 2).toDouble
+  def median(data: mutable.ArrayBuffer[Int]): Double = {
+    if (isOdd(data.length))
+      data(data.length / 2).toDouble
     else {
-      val midSize = data.size / 2
-      (data.get(midSize-1) + data.get(midSize)) / 2.0
+      val middle = data.length / 2
+      (data(middle-1) + data(middle)) / 2.0
     }
   }
 }
