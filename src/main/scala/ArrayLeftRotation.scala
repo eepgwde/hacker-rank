@@ -18,8 +18,8 @@ object ArrayLeftRotation1 extends App {
 class ArrayLeftRotation2(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader = new BufferedReader(inputStreamReader)
-  val line1: String = bufferedReader.readLine.mkString
-  val line2: String = bufferedReader.readLine.mkString
+  val line1: String = bufferedReader.readLine
+  val line2: String = bufferedReader.readLine
 
   val sc1: Scanner = new java.util.Scanner(line1)
   val numInts: Int = sc1.nextInt() // number of integers to read

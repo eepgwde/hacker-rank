@@ -4,8 +4,8 @@ import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 class Anagrams(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader = new BufferedReader(inputStreamReader)
-  val lineA: String = bufferedReader.readLine.mkString
-  val lineB: String = bufferedReader.readLine.mkString
+  val lineA: String = bufferedReader.readLine
+  val lineB: String = bufferedReader.readLine
 
   def occurrancesInA(c: Char): Int = lineA.count(_ == c)
   def occurrancesInB(c: Char): Int = lineB.count(_ == c)

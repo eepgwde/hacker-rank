@@ -5,10 +5,10 @@ import java.util
 class Brackets(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader = new BufferedReader(inputStreamReader)
-  val lineCount: Int = bufferedReader.readLine.mkString.toInt
+  val lineCount: Int = bufferedReader.readLine.toInt
 
   1 to lineCount foreach { _ =>
-    val line: String = bufferedReader.readLine.mkString
+    val line: String = bufferedReader.readLine
     println(if (isBalanced(line)) "YES" else "NO")
   }
 

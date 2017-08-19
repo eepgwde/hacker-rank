@@ -10,7 +10,7 @@ class Stacks2(in: InputStream) {
   val queue: mutable.ArrayBuffer[String] = mutable.ArrayBuffer.empty
 
   1 to lineCount foreach { _ =>
-    bufferedReader.readLine.mkString.split(" ") match {
+    bufferedReader.readLine.split(" ") match {
       case Array("1", x) => queue.append(x)
       case Array("2") => queue.remove(0)
       case Array("3") => println(queue.head)

@@ -5,9 +5,9 @@ class Ransom(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader    = new BufferedReader(inputStreamReader)
 
-  val lineCounts: String   = bufferedReader.readLine.mkString
-  val lineMagazine: String = bufferedReader.readLine.mkString
-  val lineRansom: String   = bufferedReader.readLine.mkString
+  val lineCounts: String   = bufferedReader.readLine
+  val lineMagazine: String = bufferedReader.readLine
+  val lineRansom: String   = bufferedReader.readLine
 
   val counts: Array[String] = lineCounts.split(" ")
   assert(counts.length==2)
