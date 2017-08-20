@@ -1,3 +1,5 @@
+package anagrams
+
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 
 /** Solution to https://www.hackerrank.com/challenges/ctci-making-anagrams */
@@ -25,7 +27,7 @@ class Anagrams(in: InputStream) {
   print(charsToRemove)
 }
 
-object Anagrams extends App {
+object Solution extends App {
   new Anagrams(new FileInputStream("src/main/resources/anagram.data"))
   //new Anagrams(System.in)
 }

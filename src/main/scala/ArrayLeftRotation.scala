@@ -1,3 +1,5 @@
+package arrayLeftRotation
+
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 import java.util.Scanner
 import scala.io.StdIn
@@ -32,7 +34,7 @@ class ArrayLeftRotation2(in: InputStream) {
   rotated foreach { i => print(s"$i ") }
 }
 
-object ArrayLeftRotation2 extends App {
+object Solution extends App {
   new ArrayLeftRotation2(new FileInputStream("src/main/resources/arrayLeftRotation.data"))
 //  new ArrayLeftRotation2(System.in)
 }

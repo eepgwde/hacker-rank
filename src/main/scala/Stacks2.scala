@@ -1,3 +1,5 @@
+package stacks2
+
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 import scala.collection.mutable
 
@@ -18,7 +20,7 @@ class Stacks2(in: InputStream) {
   }
 }
 
-object Stacks2 extends App {
+object Solution extends App {
   new Stacks2(new FileInputStream("src/main/resources/2stacks.data"))
 //  new Stacks2(System.in)
 }

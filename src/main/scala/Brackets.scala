@@ -1,3 +1,5 @@
+package brackets
+
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 import java.util
 
@@ -39,7 +41,7 @@ class Brackets(in: InputStream) {
   }
 }
 
-object Brackets extends App {
+object Solution extends App {
   new Brackets(new FileInputStream("src/main/resources/brackets.data"))
 //  new Brackets(System.in)
 }

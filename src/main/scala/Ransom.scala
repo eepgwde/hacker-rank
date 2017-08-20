@@ -1,3 +1,5 @@
+package ransom
+
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 
 /** Solution to https://www.hackerrank.com/challenges/ctci-ransom-note */
@@ -29,7 +31,7 @@ class Ransom(in: InputStream) {
   println(if (canRansom) "Yes" else "No")
 }
 
-object Ransom extends App {
+object Solution extends App {
 //  new Ransom(new FileInputStream("src/main/resources/ransom1.data"))
 //  new Ransom(new FileInputStream("src/main/resources/ransom2.data"))
     new Ransom(new FileInputStream("src/main/resources/ransom3.data"))

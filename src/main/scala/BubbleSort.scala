@@ -1,3 +1,5 @@
+package bubbleSort
+
 import java.io.{FileInputStream, InputStream}
 import java.util.Scanner
 

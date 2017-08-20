@@ -1,3 +1,5 @@
+package tries
+
 import java.io.{FileInputStream, InputStream}
 import java.util.Scanner
 import scala.collection.mutable
@@ -61,7 +63,7 @@ class Trie(words: Array[String] = Array.empty) {
   }
 }
 
-object Tries extends App {
+object Solution extends App {
   new Tries(new FileInputStream("src/main/resources/tries.data"))
 //  new Tries(System.in)
 }

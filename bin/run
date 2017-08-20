@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # Sample usage:
-# run -j ArrayLeftRotation2 < src/main/resources/arrayLeftRotation.data
+# bin/run -j anagrams.Solution < src/main/resources/anagram.data
+#
+# -j option forces rebuild of jar
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.."
 cd "$DIR"
@@ -25,7 +27,6 @@ VERSION="$( grep "version :=" build.sbt | cut -d' ' -f 3 | tr -d \" )"
 JAR=target/scala-`SCALA_VERSION`/hacker-rank-assembly-$VERSION.jar
 #echo $JAR
 
-# -j option forces rebuild of jar
 if [ "$1" == -j ] || [ ! -f $JAR ]; then
   echo "Building $JAR"
   sbt assembly
@@ -33,5 +34,4 @@ if [ "$1" == -j ] || [ ! -f $JAR ]; then
   if [ "$1" == -j ]; then shift; fi
 fi
 
-# --help option gives usage
 java -cp "$JAR" $1 "$@"

@@ -1,3 +1,5 @@
+package runningMedian
+
 import java.io.{FileInputStream, InputStream, InputStreamReader}
 import java.util.Scanner
 import scala.collection.Searching._
@@ -34,7 +36,7 @@ class RunningMedian(inStream: InputStream) {
   }
 }
 
-object RunningMedian extends App {
+object Solution extends App {
   new RunningMedian(new FileInputStream("src/main/resources/runningMedian.data"))
 //  new RunningMedian(System.in)
 }

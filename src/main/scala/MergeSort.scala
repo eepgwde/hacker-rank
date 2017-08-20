@@ -1,3 +1,5 @@
+package mergeSorter
+
 import java.io.{FileInputStream, InputStream, InputStreamReader}
 import java.util.Scanner
 
@@ -65,7 +67,7 @@ class MergeSort(inStream: InputStream) {
   }
 }
 
-object MergeSort extends App {
+object Solution extends App {
   new MergeSort(new FileInputStream("src/main/resources/mergeSort.data"))
 //  new MergeSort(System.in)
 }
