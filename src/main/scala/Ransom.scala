@@ -2,7 +2,12 @@ package ransom
 
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 
-/** Solution to https://www.hackerrank.com/challenges/ctci-ransom-note */
+/** Solution to https://www.hackerrank.com/challenges/ctci-ransom-note
+  * {{
+  * bin/run ransom.Solution < src/main/resources/ransom1.data
+  * bin/run ransom.Solution < src/main/resources/ransom1.data
+  * bin/run ransom.Solution < src/main/resources/ransom1.data
+  * }} */
 class Ransom(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader    = new BufferedReader(inputStreamReader)

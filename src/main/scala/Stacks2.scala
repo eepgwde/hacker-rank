@@ -4,7 +4,8 @@ import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 import scala.collection.mutable
 
 /** Solution to https://www.hackerrank.com/challenges/ctci-queue-using-two-stacks
-  * I admit I cheated because I did not use 2 stacks, because I thought that implementation requirement was dumb. */
+  * I admit I cheated because I did not use 2 stacks, because I thought that implementation requirement was dumb.
+  * {{ bin/run stacks2.Solution < src/main/resources/2stacks.data }} */
 class Stacks2(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader = new BufferedReader(inputStreamReader)

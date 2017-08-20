@@ -3,6 +3,8 @@ package mergeSorter
 import java.io.{FileInputStream, InputStream, InputStreamReader}
 import java.util.Scanner
 
+/** Solution to https://www.hackerrank.com/challenges/ctci-merge-sort
+  * {{ bin/run mergeSorter.Solution < src/main/resources/mergeSort.data }} */
 class MergeSorter {
   /* The array to be sort can have up to n = 100,000 elements, so there may be O(n^2) swaps.
     n^2 is 10,000,000,000. An Int has a maximum value 2,147,483,647 so a Long is used

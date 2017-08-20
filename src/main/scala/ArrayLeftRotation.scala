@@ -5,7 +5,8 @@ import java.util.Scanner
 import scala.io.StdIn
 
 /** Version 1: Minimal memory solution to https://www.hackerrank.com/challenges/ctci-array-left-rotation
-  * Requires one integer per line, which is not what the requirement states */
+  * Requires one integer per line, which is not what the requirement states
+  * {{ bin/run arrayLeftRotation1.Solution < src/main/resources/arrayLeftRotation.data }} */
 object ArrayLeftRotation1 extends App {
   val numInts = StdIn.readInt   // number of integers to read
   val rotations = StdIn.readInt // number of rotations to apply
@@ -16,7 +17,8 @@ object ArrayLeftRotation1 extends App {
   rotated foreach { i => print(s"$i ") } // append rotated integers to remainder of stream
 }
 
-/** Version 2: Expects data on two lines */
+/** Version 2: Expects data on two lines
+  * {{ bin/run arrayLeftRotation2.Solution < src/main/resources/arrayLeftRotation.data }} */
 class ArrayLeftRotation2(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader = new BufferedReader(inputStreamReader)

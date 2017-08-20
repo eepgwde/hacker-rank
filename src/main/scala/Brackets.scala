@@ -3,7 +3,8 @@ package brackets
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 import java.util
 
-/** Solution to https://www.hackerrank.com/challenges/ctci-balanced-brackets */
+/** Solution to https://www.hackerrank.com/challenges/ctci-balanced-brackets
+  * {{ bin/run brackets.Solution < src/main/resources/brackets.data }} */
 class Brackets(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader = new BufferedReader(inputStreamReader)

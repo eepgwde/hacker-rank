@@ -2,7 +2,8 @@ package anagrams
 
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 
-/** Solution to https://www.hackerrank.com/challenges/ctci-making-anagrams */
+/** Solution to https://www.hackerrank.com/challenges/ctci-making-anagrams
+  * {{ bin/run anagrams.Solution < src/main/resources/anagram.data }} */
 class Anagrams(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader = new BufferedReader(inputStreamReader)

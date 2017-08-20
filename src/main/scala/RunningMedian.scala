@@ -5,7 +5,8 @@ import java.util.Scanner
 import scala.collection.Searching._
 import scala.collection.mutable
 
-/** Solution to https://www.hackerrank.com/challenges/ctci-find-the-running-median */
+/** Solution to https://www.hackerrank.com/challenges/ctci-find-the-running-median
+  * {{ bin/run runningMedian.Solution < src/main/resources/runningMedian.data }} */
 class RunningMedian(inStream: InputStream) {
   // The key to this solution is that this array is maintained in sorted order:
   val data: mutable.ArrayBuffer[Int] = mutable.ArrayBuffer.empty[Int]
