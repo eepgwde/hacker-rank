@@ -3,6 +3,8 @@ package ransom
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 
 /** Solution to https://www.hackerrank.com/challenges/ctci-ransom-note
+  *
+  * To run:
   * {{
   * bin/run ransom.Solution < src/main/resources/ransom1.data
   * bin/run ransom.Solution < src/main/resources/ransom1.data

@@ -4,6 +4,8 @@ import java.io.{FileInputStream, InputStream, InputStreamReader}
 import java.util.Scanner
 
 /** Solution to https://www.hackerrank.com/challenges/ctci-merge-sort
+  *
+  * To run:
   * {{ bin/run mergeSorter.Solution < src/main/resources/mergeSort.data }} */
 class MergeSorter {
   /* The array to be sort can have up to n = 100,000 elements, so there may be O(n^2) swaps.

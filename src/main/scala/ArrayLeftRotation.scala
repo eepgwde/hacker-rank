@@ -6,6 +6,8 @@ import scala.io.StdIn
 
 /** Version 1: Minimal memory solution to https://www.hackerrank.com/challenges/ctci-array-left-rotation
   * Requires one integer per line, which is not what the requirement states
+  *
+  * To run:
   * {{ bin/run arrayLeftRotation1.Solution < src/main/resources/arrayLeftRotation.data }} */
 object ArrayLeftRotation1 extends App {
   val numInts = StdIn.readInt   // number of integers to read
@@ -18,6 +20,8 @@ object ArrayLeftRotation1 extends App {
 }
 
 /** Version 2: Expects data on two lines
+  *
+  * To run:
   * {{ bin/run arrayLeftRotation2.Solution < src/main/resources/arrayLeftRotation.data }} */
 class ArrayLeftRotation2(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)

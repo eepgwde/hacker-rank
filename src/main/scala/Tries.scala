@@ -5,8 +5,11 @@ import java.util.Scanner
 import scala.collection.mutable
 
 /** Solution to https://www.hackerrank.com/challenges/ctci-contacts
+  *
+  * To run:
   * {{ bin/run tries.Solution < src/main/resources/tries.data }}
-  * Times out for 2 test cases, unclear why - it is similar to the
+  *
+  * Times out for 2 test cases, unclear why - this solution is quite similar to the
   * [[https://github.com/rshaghoulian/HackerRank_solutions/blob/master/Cracking%20the%20Coding%20Interview/Data%20Structures/Tries%20-%20Contacts/Solution.java Java version]] */
 class Tries(inStream: InputStream) {
   val contacts: mutable.ArrayBuffer[String] = mutable.ArrayBuffer.empty[String]
