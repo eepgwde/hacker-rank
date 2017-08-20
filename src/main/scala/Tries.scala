@@ -58,7 +58,7 @@ class Trie(words: Array[String] = Array.empty) {
     }
   }
 
-  def find(prefix: String): Int = {
+  def find(prefix: String): Int = { // jvisualvm shows this is the slowest code
     var curr = root
     /* Traverse tree to end of prefix */
     prefix foreach { ch =>
@@ -69,6 +69,14 @@ class Trie(words: Array[String] = Array.empty) {
 }
 
 object Solution extends App {
+  import java.io.{BufferedReader, InputStreamReader}
+  val br = new BufferedReader(new InputStreamReader(System.in))
+  System.out.println("Press Enter to continue")
+  try {
+    br.read()
+  } catch {
+    case _: Exception =>
+  }
   new Tries(new FileInputStream("src/main/resources/tries.data"))
 //  new Tries(System.in)
 }
