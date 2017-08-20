@@ -8,3 +8,7 @@
 
 I discovered [Hacker-Rank Solutions](https://github.com/rshaghoulian/HackerRank_solutions) for Java while I was working through the HackerRank problems. 
 Some of the solutions to the Scala problems that I present are based on the Java solutions for the cases where I discovered that idiomatic Scala solutions were not fast enough to pass the tests.
+
+The only requirement for running these sample programs is [SBT](http://www.scala-sbt.org/).
+
+If you'd like to learn enough Scala to be able to read and write this code, check out [ScalaCourses.com](https://www.ScalaCourses.com)
