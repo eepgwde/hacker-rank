@@ -1,4 +1,4 @@
-# Idiomatic Scala HackerRank Solutions for Scala
+# Idiomatic Scala HackerRank Solutions
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Build Status](https://travis-ci.org/mslinn/hacker-rank.svg?branch=master)](https://travis-ci.org/mslinn/hacker-rank)
