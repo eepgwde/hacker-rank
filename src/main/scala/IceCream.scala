@@ -27,6 +27,6 @@ class IceCream(inStream: InputStream) {
 }
 
 object Solution extends App {
-//  new IceCream(new FileInputStream("src/main/resources/iceCream.data"))
-  new IceCream(System.in)
+  new IceCream(new FileInputStream("src/main/resources/iceCream.data"))
+//  new IceCream(System.in)
 }
