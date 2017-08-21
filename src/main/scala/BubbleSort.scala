@@ -1,6 +1,12 @@
+package bubbleSort
+
 import java.io.{FileInputStream, InputStream}
 import java.util.Scanner
 
+/** Solution to https://www.hackerrank.com/challenges/ctci-bubble-sort
+  *
+  * To run:
+  * {{ bin/run bubbleSort.Solution < src/main/resources/bubbleSort.data }} */
 class BubbleSort(inStream: InputStream) {
   private var swaps = 0
   val in: Scanner = new Scanner(inStream)

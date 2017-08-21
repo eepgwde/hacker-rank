@@ -1,7 +1,12 @@
+package brackets
+
 import java.io.{BufferedReader, FileInputStream, InputStream, InputStreamReader}
 import java.util
 
-/** Solution to https://www.hackerrank.com/challenges/ctci-balanced-brackets */
+/** Solution to https://www.hackerrank.com/challenges/ctci-balanced-brackets
+  *
+  * To run:
+  * {{ bin/run brackets.Solution < src/main/resources/brackets.data }} */
 class Brackets(in: InputStream) {
   val inputStreamReader = new InputStreamReader(in)
   val bufferedReader = new BufferedReader(inputStreamReader)
@@ -39,7 +44,7 @@ class Brackets(in: InputStream) {
   }
 }
 
-object Brackets extends App {
+object Solution extends App {
   new Brackets(new FileInputStream("src/main/resources/brackets.data"))
 //  new Brackets(System.in)
 }
