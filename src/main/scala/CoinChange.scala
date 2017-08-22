@@ -35,6 +35,6 @@ class CoinChange(inStream: InputStream) {
 }
 
 object Solution extends App {
-//  new CoinChange(new FileInputStream("src/main/resources/change.data"))
-  new CoinChange(System.in)
+  new CoinChange(new FileInputStream("src/main/resources/change.data"))
+//  new CoinChange(System.in)
 }
