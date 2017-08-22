@@ -2,6 +2,7 @@ package change
 
 import java.io.{FileInputStream, InputStream, InputStreamReader}
 import java.util.Scanner
+import scala.collection.mutable
 
 /** Solution to https://www.hackerrank.com/challenges/ctci-coin-change
   * See https://www.topcoder.com/community/data-science/data-science-tutorials/dynamic-programming-from-novice-to-advanced/
@@ -13,24 +14,35 @@ class CoinChange(inStream: InputStream) {
   val in: Scanner = new Scanner(inStream)
   val amount: Int = in.nextInt()
   val nCoins: Int = in.nextInt()
-  val coins: List[Int] = (1 to nCoins).toList map { _ => in.nextInt() }
-  val countChange: ((Int, List[Int])) => Int =
-    memoize((_countChange _).tupled)
+  val coins: Vector[Int] = (1 to nCoins).toVector map { _ => in.nextInt() }
 
-  println(countChange((amount, coins)))
+  println(countChange(amount, coins))
 
-  def _countChange(amount: Int, coins: List[Int]): Int = {
-    if (amount < 0)
-      0
-    else if (coins.isEmpty)
-      if (amount == 0) 1 else 0
-    else
-      countChange((amount, coins.tail)) + countChange((amount - coins.head, coins))
-  }
+  def countChange(amount: Int, coins: Vector[Int]): Long =
+    if (amount < 0) 0
+    else countChange(amount, coins, 0, mutable.HashMap.empty[String, Long])
 
-  def memoize[Key, Value](f: Key => Value): (Key) => Value = {
-    val cache = collection.mutable.WeakHashMap.empty[Key, Value]
-    (key: Key) => cache.getOrElseUpdate(key, f(key))
+  def countChange(amount: Int, coins: Vector[Int], coinNumber: Int, cache: mutable.HashMap[String, Long]): Long = {
+      val key = amount + "," + coinNumber
+      if (cache.contains(key)) {
+        cache(key)
+      } else {
+        if (coinNumber == coins.size - 1) {
+          if (amount % coins(coinNumber) == 0) {
+            cache.put(key, 1L)
+            1
+          } else {
+            cache.put(key, 0L)
+            0
+          }
+        } else {
+          val ways: Seq[Long] = 0 to amount by coins(coinNumber) map { i =>
+            countChange(amount - i, coins, coinNumber + 1, cache)
+          }
+          cache.put(key, ways.sum)
+          ways.sum
+        }
+      }
   }
 }
 
