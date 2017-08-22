@@ -14,18 +14,22 @@ class Staircase(inStream: InputStream) {
   val in: Scanner = new Scanner(inStream)
   val staircaseCount: Int = in.nextInt()
 
+  val staircase: Int => Int = memoize(_staircase)
+
   1 to staircaseCount foreach { _ =>
-    cache.clear()
-    cache.put(0, 1)
     println(staircase(in.nextInt()))
   }
 
-  def staircase(stairCount: Int): Int = {
+  def _staircase(stairCount: Int): Int = {
     if (stairCount < 0) 0 else
-    if (cache.contains(stairCount)) cache(stairCount) else {
-      val ways = staircase(stairCount - 1) + staircase(stairCount - 2) + staircase(stairCount - 3)
-      cache.put(stairCount, ways)
-      ways
+    if (stairCount==0) 1 else
+      staircase(stairCount - 1) + staircase(stairCount - 2) + staircase(stairCount - 3)
+  }
+
+  def memoize[Key, Value](f: Key => Value): (Key) => Value = {
+    val cache = collection.mutable.WeakHashMap.empty[Key, Value]
+    (key: Key) => {
+      cache.getOrElseUpdate(key, f(key))
     }
   }
 }
