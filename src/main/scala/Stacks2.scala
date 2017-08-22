@@ -24,6 +24,6 @@ class Stacks2(in: InputStream) {
 }
 
 object Solution extends App {
-  new Stacks2(new FileInputStream("src/main/resources/2stacks.data"))
-//  new Stacks2(System.in)
+//  new Stacks2(new FileInputStream("src/main/resources/2stacks.data"))
+  new Stacks2(System.in)
 }

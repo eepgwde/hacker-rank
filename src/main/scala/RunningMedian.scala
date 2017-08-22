@@ -40,6 +40,6 @@ class RunningMedian(inStream: InputStream) {
 }
 
 object Solution extends App {
-  new RunningMedian(new FileInputStream("src/main/resources/runningMedian.data"))
-//  new RunningMedian(System.in)
+//  new RunningMedian(new FileInputStream("src/main/resources/runningMedian.data"))
+  new RunningMedian(System.in)
 }

@@ -31,6 +31,6 @@ class Anagrams(in: InputStream) {
 }
 
 object Solution extends App {
-  new Anagrams(new FileInputStream("src/main/resources/anagram.data"))
-  //new Anagrams(System.in)
+//  new Anagrams(new FileInputStream("src/main/resources/anagram.data"))
+  new Anagrams(System.in)
 }

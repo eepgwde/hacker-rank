@@ -30,6 +30,6 @@ class Primality(inStream: InputStream) {
 }
 
 object Solution extends App {
-  new Primality(new FileInputStream("src/main/resources/primality.data"))
-//  new Primality(System.in)
+//  new Primality(new FileInputStream("src/main/resources/primality.data"))
+  new Primality(System.in)
 }

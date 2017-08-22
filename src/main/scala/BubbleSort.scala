@@ -46,6 +46,6 @@ class BubbleSort(inStream: InputStream) {
 }
 
 object Solution extends App {
-  new BubbleSort(new FileInputStream("src/main/resources/bubbleSort.data"))
-//  new BubbleSort(System.in)
+//  new BubbleSort(new FileInputStream("src/main/resources/bubbleSort.data"))
+  new BubbleSort(System.in)
 }

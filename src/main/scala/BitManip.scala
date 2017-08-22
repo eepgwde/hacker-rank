@@ -26,6 +26,6 @@ class BitManip(inStream: InputStream) {
 }
 
 object Solution extends App {
-//  new BitManip(new FileInputStream("src/main/resources/bitManip2.data"))
-  new BitManip(System.in)
+  new BitManip(new FileInputStream("src/main/resources/bitManip2.data"))
+//  new BitManip(System.in)
 }

@@ -45,6 +45,6 @@ class Brackets(in: InputStream) {
 }
 
 object Solution extends App {
-  new Brackets(new FileInputStream("src/main/resources/brackets.data"))
-//  new Brackets(System.in)
+//  new Brackets(new FileInputStream("src/main/resources/brackets.data"))
+  new Brackets(System.in)
 }

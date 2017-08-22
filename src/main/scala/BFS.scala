@@ -63,6 +63,6 @@ class BFS(inStream: InputStream) {
 }
 
 object Solution extends App {
-  new BFS(new FileInputStream("src/main/resources/bfs.data"))
-//  new BFS(System.in)
+//  new BFS(new FileInputStream("src/main/resources/bfs.data"))
+  new BFS(System.in)
 }

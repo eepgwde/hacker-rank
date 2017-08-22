@@ -77,6 +77,6 @@ object Solution extends App {
   } catch {
     case _: Exception =>
   }
-  new Tries(new FileInputStream("src/main/resources/tries.data"))
-//  new Tries(System.in)
+//  new Tries(new FileInputStream("src/main/resources/tries.data"))
+  new Tries(System.in)
 }

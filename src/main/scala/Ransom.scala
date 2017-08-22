@@ -41,6 +41,6 @@ class Ransom(in: InputStream) {
 object Solution extends App {
 //  new Ransom(new FileInputStream("src/main/resources/ransom1.data"))
 //  new Ransom(new FileInputStream("src/main/resources/ransom2.data"))
-    new Ransom(new FileInputStream("src/main/resources/ransom3.data"))
-//  new Ransom(System.in)
+//  new Ransom(new FileInputStream("src/main/resources/ransom3.data"))
+  new Ransom(System.in)
 }

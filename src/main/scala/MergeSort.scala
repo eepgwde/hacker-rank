@@ -72,6 +72,6 @@ class MergeSort(inStream: InputStream) {
 }
 
 object Solution extends App {
-  new MergeSort(new FileInputStream("src/main/resources/mergeSort.data"))
-//  new MergeSort(System.in)
+//  new MergeSort(new FileInputStream("src/main/resources/mergeSort.data"))
+  new MergeSort(System.in)
 }

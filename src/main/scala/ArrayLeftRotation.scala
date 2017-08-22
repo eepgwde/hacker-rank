@@ -41,6 +41,6 @@ class ArrayLeftRotation2(in: InputStream) {
 }
 
 object Solution extends App {
-  new ArrayLeftRotation2(new FileInputStream("src/main/resources/arrayLeftRotation.data"))
-//  new ArrayLeftRotation2(System.in)
+//  new ArrayLeftRotation2(new FileInputStream("src/main/resources/arrayLeftRotation.data"))
+  new ArrayLeftRotation2(System.in)
 }

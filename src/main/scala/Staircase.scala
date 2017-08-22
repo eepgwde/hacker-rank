@@ -35,6 +35,6 @@ class Staircase(inStream: InputStream) {
 }
 
 object Solution extends App {
-  new Staircase(new FileInputStream("src/main/resources/staircase.data"))
-//  new Staircase(System.in)
+//  new Staircase(new FileInputStream("src/main/resources/staircase.data"))
+  new Staircase(System.in)
 }

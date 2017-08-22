@@ -35,6 +35,6 @@ class Fibonacci(inStream: InputStream) {
 }
 
 object Solution extends App {
-  new Fibonacci(new FileInputStream("src/main/resources/fibonacci.data"))
-//  new Fibonacci(System.in)
+//  new Fibonacci(new FileInputStream("src/main/resources/fibonacci.data"))
+  new Fibonacci(System.in)
 }
