@@ -7,11 +7,23 @@ import scala.collection.mutable
 case class Nodes(value: IndexedSeq[Node]) {
   protected val visitedIds: mutable.HashSet[Int] = mutable.HashSet.empty
 
-  def distanceBetween(fromNode: Node, toNode: Node): Int = {
-    if (fromNode.connectedNodeIds.isEmpty) -1 else {
+  def distancesFrom(startNode: Node): IndexedSeq[Int] = {
+    resetVisitedIds()
+    value
+      .filterNot(_==startNode)
+      .map { node => distanceBetween(startNode, node) }
+  }
+
+  def nodeById(id: Int): Node = value.filter(_.id==id).head
+
+  protected def distanceBetween(fromNode: Node, toNode: Node): Int = {
+    if (fromNode.connectedNodeIds.isEmpty)
+      -1
+    else {
       visitedIds.add(fromNode.id)
       val ids = fromNode.connectedNodeIds diff visitedIds.toIndexedSeq
-      if (ids.isEmpty) -1
+      if (ids.isEmpty)
+        -1
       else if (ids.contains(toNode.id)) 6
       else ids.map { id =>
         Console.err.println(s"from ${fromNode.id} to $id")
@@ -22,10 +34,7 @@ case class Nodes(value: IndexedSeq[Node]) {
     }
   }
 
-  def distancesFrom(startNode: Node): IndexedSeq[Int] =
-    value.filterNot(_==startNode).map { node => distanceBetween(startNode, node) }
-
-  def nodeById(id: Int): Node = value.filter(_.id==id).head
+  protected def resetVisitedIds(): Unit = visitedIds.clear()
 }
 
 case class Node(id: Int, connectedNodeIds: Seq[Int])
