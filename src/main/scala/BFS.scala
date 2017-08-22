@@ -21,16 +21,19 @@ case class Nodes(value: IndexedSeq[Node]) {
       -1
     else {
       visitedIds.add(fromNode.id)
-      val ids = fromNode.connectedNodeIds diff visitedIds.toIndexedSeq
-      if (ids.isEmpty)
+      val remainingConnectedIds: Seq[Int] = fromNode.connectedNodeIds diff visitedIds.toIndexedSeq
+      if (remainingConnectedIds.isEmpty)
         -1
-      else if (ids.contains(toNode.id)) 6
-      else ids.map { id =>
-        Console.err.println(s"from ${fromNode.id} to $id")
-        visitedIds.add(id)
-        val toNode = nodeById(id)
-        distanceBetween(toNode, toNode)
-      }.min
+      else if (remainingConnectedIds.contains(toNode.id)) 6
+      else {
+        val x = remainingConnectedIds.map { id =>
+          Console.err.println(s"from ${ fromNode.id } to $id")
+          visitedIds.add(id)
+          val nextNode = nodeById(id)
+          distanceBetween(nextNode, toNode)
+        }
+        if (x.forall(_ > 0)) x.min else -1
+      }
     }
   }
 
