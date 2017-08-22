@@ -4,7 +4,13 @@ import java.io.{FileInputStream, InputStream, InputStreamReader}
 import java.util.Scanner
 import scala.collection.immutable
 
+/** Solution to https://www.hackerrank.com/challenges/ctci-connected-cell-in-a-grid
+  *
+  * To run:
+  * {{ bin/run dfs.Solution < src/main/resources/dfs.data }} */
 case class Cell(x: Int, y: Int, isFilled: Boolean, var wasVisited: Boolean=false) {
+  lazy val coordStr: String = s"($x, $y)"
+
   lazy val neighbors: immutable.IndexedSeq[Cell] =
     for {
       row <- math.max(0, y-1) to math.min(DFS.lineCount-1,   y+1)
@@ -14,58 +20,70 @@ case class Cell(x: Int, y: Int, isFilled: Boolean, var wasVisited: Boolean=false
 
   lazy val neighborIndices: String =
     neighbors
-      .map(n => s"[${ n.x }, ${ n.y }]")
+      .map(_.coordStr)
       .mkString(", ")
 
   lazy val filledNeighbors: immutable.IndexedSeq[Cell] =
     if (isFilled) neighbors.filter(c => c.isFilled && !c.wasVisited) else immutable.IndexedSeq.empty[Cell]
 
+  lazy val filledNeighborCount: Int = if (isFilled) filledNeighbors.size else 0
+
   lazy val connectedNeighbors: immutable.IndexedSeq[Cell] = {
     wasVisited = true
-    val fn = filledNeighbors
+    val fn = filledNeighbors.filterNot(_.wasVisited)
     //println(coordStr + ": " + fn.map(_.coordStr).mkString(", "))
-    fn.filterNot(_.wasVisited).flatMap { cell =>
+    fn.flatMap { cell =>
       cell.wasVisited = true
       cell.connectedNeighbors
     }.+:(this)
+     .distinct
   }
 
   final def connectsTo(cell: Cell): Boolean =
     if (filledNeighbors.contains(cell)) true else
       filledNeighbors.exists(_.connectsTo(cell))
-
-  lazy val filledNeighborCount: Int = if (isFilled) filledNeighbors.size else 0
-
-  def coordStr: String = s"($x, $y)"
 }
 
 object DFS {
-  //  val inStream: InputStream = new FileInputStream("src/main/resources/dfs.data")
-  val inStream: InputStream = System.in
+//  val inStream: InputStream = System.in
+    val inStream: InputStream = new FileInputStream("src/main/resources/dfs.data")
+
   val inputStreamReader = new InputStreamReader(inStream)
   val in: Scanner = new Scanner(inStream)
+
   val lineCount: Int = in.nextInt()
   val columnCount: Int = in.nextInt()
+  val cells: IndexedSeq[IndexedSeq[Cell]] = createCells(lineCount, columnCount)
 
-  // create cells
-  val cells: IndexedSeq[IndexedSeq[Cell]] =
-    (1 to lineCount).map { y =>
-      (1 to columnCount).map { x =>
-        Cell(x-1, y-1, in.nextInt()==1)
+  def apply(): Int = {
+//    showNeighbors()
+//    showCounts()
+    DFS.clearVisits()
+    val sizes = for {
+      row <- cells.indices
+      col <- cells(row).indices
+    } yield cells(row)(col).connectedNeighbors.size
+    sizes.max
+  }
+
+  def clearVisits(): Unit =
+    cells.indices.foreach { y =>
+      cells(y).indices.foreach { x =>
+        cells(y)(x).wasVisited = false
       }
     }
 
-  def clearVisits(): Unit =
-    (1 to lineCount).foreach { y =>
-      (1 to columnCount).foreach { x =>
-        cells(y-1)(x-1).wasVisited = false
+  def createCells(nLines: Int, nColumns: Int): IndexedSeq[IndexedSeq[Cell]] =
+    (0 until nLines).map { y =>
+      (0 until nColumns).map { x =>
+        Cell(x, y, in.nextInt()==1)
       }
     }
 
   def showCounts(): Unit = {
     Console.err.println("Counts:")
-    (0 until lineCount).foreach { y =>
-      (0 until columnCount).foreach { x =>
+    cells.indices.foreach { y =>
+      cells(y).indices.foreach { x =>
         Console.err.print(cells(y)(x).filledNeighborCount + " ")
       }
       Console.err.println()
@@ -75,24 +93,13 @@ object DFS {
 
   def showNeighbors(): Unit = {
     println("Neighbors:")
-    (0 until lineCount).foreach { y =>
-      (0 until columnCount).foreach { x =>
+    cells.indices.foreach { y =>
+      cells(y).indices.foreach { x =>
         val cell = cells(y)(x)
         Console.err.print(cell.coordStr + s": " + cell.neighborIndices + "\n")
       }
     }
     Console.err.println()
-  }
-
-  def apply(): Int = {
-//    showNeighbors()
-//    showCounts()
-    DFS.clearVisits()
-    val sizes = for {
-      row <- cells.indices
-      col <- cells(row).indices
-    } yield cells(row)(col).connectedNeighbors.distinct.size
-    sizes.max
   }
 }
 
