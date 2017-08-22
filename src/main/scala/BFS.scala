@@ -4,37 +4,36 @@ import java.io.{FileInputStream, InputStream, InputStreamReader}
 import java.util.Scanner
 import scala.collection.mutable
 
-case class Nodes(value: IndexedSeq[Node]) {
+case class Nodes(nodes: IndexedSeq[Node]) {
   protected val visitedIds: mutable.HashSet[Int] = mutable.HashSet.empty
 
   def distancesFrom(startNode: Node): IndexedSeq[Int] = {
     resetVisitedIds()
-    value
+    nodes
       .filterNot(_==startNode)
       .map { node => distanceBetween(startNode, node) }
   }
 
-  def nodeById(id: Int): Node = value.filter(_.id==id).head
+  def nodeById(id: Int): Node = nodes.filter(_.id==id).head
 
   protected def distanceBetween(fromNode: Node, toNode: Node): Int = {
-    if (fromNode.connectedNodeIds.isEmpty)
+    visitedIds.add(fromNode.id)
+    val result = if (fromNode.connectedNodeIds.isEmpty)
       -1
+    else if (fromNode.connectedNodeIds.contains(toNode.id))
+      6
     else {
-      visitedIds.add(fromNode.id)
       val remainingConnectedIds: Seq[Int] = fromNode.connectedNodeIds diff visitedIds.toIndexedSeq
-      if (remainingConnectedIds.isEmpty)
-        -1
-      else if (remainingConnectedIds.contains(toNode.id)) 6
-      else {
-        val x = remainingConnectedIds.map { id =>
-          Console.err.println(s"from ${ fromNode.id } to $id")
-          visitedIds.add(id)
-          val nextNode = nodeById(id)
-          distanceBetween(nextNode, toNode)
-        }
-        if (x.forall(_ > 0)) x.min else -1
+      val distances: Seq[Int] = remainingConnectedIds.map { connectedId =>
+        Console.err.println(s"from ${ fromNode.id } to $connectedId")
+        val connectedNode = nodeById(connectedId)
+        val distance = distanceBetween(connectedNode, toNode)
+        distance
       }
+      val posDistances: Seq[Int] = distances.filter(_ > 0)
+      if (posDistances.nonEmpty) posDistances.min else -1
     }
+    result
   }
 
   protected def resetVisitedIds(): Unit = visitedIds.clear()
