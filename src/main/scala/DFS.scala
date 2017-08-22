@@ -46,7 +46,7 @@ case class Cell(x: Int, y: Int, isFilled: Boolean, var wasVisited: Boolean=false
 
 object DFS {
 //  val inStream: InputStream = System.in
-    val inStream: InputStream = new FileInputStream("src/main/resources/dfs.data")
+  val inStream: InputStream = new FileInputStream("src/main/resources/dfs.data")
 
   val inputStreamReader = new InputStreamReader(inStream)
   val in: Scanner = new Scanner(inStream)
