@@ -1,4 +1,4 @@
-/******************************************************************************
+package princeton; /******************************************************************************
  *  Compilation:  javac Stack.java
  *  Execution:    java Stack < input.txt
  *  Dependencies: StdIn.java StdOut.java

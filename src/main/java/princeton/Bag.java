@@ -1,4 +1,4 @@
-// From http://algs4.cs.princeton.edu/41graph/Bag.java.html
+package princeton;// From http://algs4.cs.princeton.edu/41graph/Bag.java.html
 /******************************************************************************
  *  Compilation:  javac Bag.java
  *  Execution:    java Bag < input.txt

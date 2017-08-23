@@ -1,4 +1,4 @@
-// From http://algs4.cs.princeton.edu/41graph/Graph.java.html
+package princeton;// From http://algs4.cs.princeton.edu/41graph/Graph.java.html
 /******************************************************************************
  *  Compilation:  javac Graph.java
  *  Execution:    java Graph input.txt

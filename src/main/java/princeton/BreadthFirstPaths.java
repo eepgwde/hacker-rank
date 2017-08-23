@@ -1,4 +1,4 @@
-// From http://algs4.cs.princeton.edu/41graph/BreadthFirstPaths.java
+package princeton;// From http://algs4.cs.princeton.edu/41graph/BreadthFirstPaths.java
 
 /******************************************************************************
  *  Compilation:  javac BreadthFirstPaths.java
