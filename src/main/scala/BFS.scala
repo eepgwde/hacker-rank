@@ -6,7 +6,7 @@ import scala.collection.mutable
 import Model._
 
 /** Solution to https://www.hackerrank.com/challenges/ctci-bfs-shortest-reach
-  *
+  * Passes test data but mostly fails test suite, not sure why (did not spend hackos to find out)
   * To run:
   * {{ bin/run bfs.Solution < src/main/resources/bfs.data }} */
 object Model {
