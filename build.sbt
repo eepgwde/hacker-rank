@@ -1,6 +1,6 @@
 organization := "com.micronautics"
 
-name := "hacker-rank"
+name := "report-metrics"
 
 version := "0.1.0"
 
@@ -40,8 +40,11 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.scalatest"     %% "scalatest"   % "3.0.3" % Test withSources(),
-  "junit"             %  "junit"       % "4.12"  % Test
+  "com.github.melrief"         %% "purecsv"      % "0.1.0",
+  "com.google.guava"           %  "guava"        % "23.1-jre",
+  //
+  "org.scalatest"              %% "scalatest"   % "3.0.3" % Test withSources(),
+  "junit"                      %  "junit"       % "4.12"  % Test
 )
 
 logLevel := Level.Warn
