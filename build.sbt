@@ -41,7 +41,9 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest"     %% "scalatest"   % "3.0.3" % Test withSources(),
-  "junit"             %  "junit"       % "4.12"  % Test
+  "junit"             %  "junit"       % "4.12"  % Test,
+  "ch.qos.logback"          % "logback-classic" % "1.2.3",
+  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2"
 )
 
 logLevel := Level.Warn
@@ -58,3 +60,6 @@ initialCommands in console := """
                                 |""".stripMargin
 
 cancelable := true
+
+mainClass in  (Compile, run) := Some("fibonacci.Solution")
+mainClass in (Compile, packageBin) := Some("fibonacci.Solution")

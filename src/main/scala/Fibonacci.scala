@@ -1,4 +1,4 @@
-package fibonnaci
+package fibonacci
 
 import java.io.{FileInputStream, InputStream, InputStreamReader}
 import java.util.Scanner
@@ -9,17 +9,12 @@ import scala.collection.{immutable, mutable}
   *
   * To run:
   * {{ bin/run fibonnaci.Solution < src/main/resources/fibonnaci.data }} */
-class Fibonacci(inStream: InputStream) {
-  val inputStreamReader = new InputStreamReader(inStream)
-  val in: Scanner = new Scanner(inStream)
-  val number: Int = in.nextInt()
-
+class Fibonacci {
   val defaultMap = immutable.HashMap(0 -> BigInt(0), 1 -> BigInt(1))
-  val cache: mutable.Map[Int, BigInt] = mutable.WeakHashMap[Int, BigInt]().withDefault(defaultMap)
+  val cache: mutable.Map[Int, BigInt] =
+    mutable.WeakHashMap[Int, BigInt]().withDefault(defaultMap)
 
-  println(fibMem(number))
-
-  def fn(n: Int): BigInt = {
+  def fib0(n: Int): BigInt = {
     @tailrec
     def fibIter(count: Int, fibN1: BigInt, fibN2: BigInt): BigInt =
       if (count == n) {
@@ -31,10 +26,18 @@ class Fibonacci(inStream: InputStream) {
     fibIter(0, 0L, 1L)
   }
 
-  def fibMem(n: Int): BigInt = cache.getOrElse(n, fn(n))
+  def fib(n: Int): BigInt = cache.getOrElse(n, fib0(n))
 }
 
 object Solution extends App {
-//  new Fibonacci(new FileInputStream("src/main/resources/fibonacci.data"))
-  new Fibonacci(System.in)
+  val fib = new Fibonacci()
+
+  val inStream = new FileInputStream("src/main/resources/fibonacci.data")
+  val inputStreamReader = new InputStreamReader(inStream)
+  val in: Scanner = new Scanner(inStream)
+  val number: Int = in.nextInt()
+
+  val nfib = fib.fib(number)
+
+  println(s"$number has $nfib")
 }

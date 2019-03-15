@@ -12,14 +12,14 @@ class Anagrams(in: InputStream) {
   val lineA: String = bufferedReader.readLine
   val lineB: String = bufferedReader.readLine
 
-  def occurrancesInA(c: Char): Int = lineA.count(_ == c)
-  def occurrancesInB(c: Char): Int = lineB.count(_ == c)
+  def occurrencesInA(c: Char): Int = lineA.count(_ == c)
+  def occurrencesInB(c: Char): Int = lineB.count(_ == c)
 
   var charsToRemove = 0
 
   (lineA+lineB).distinct foreach { c =>
-    val aCount: Int = occurrancesInA(c)
-    val bCount: Int = occurrancesInB(c)
+    val aCount: Int = occurrencesInA(c)
+    val bCount: Int = occurrencesInB(c)
     val minCount: Int = math.min(aCount, bCount)
     if (aCount>minCount)
       charsToRemove = charsToRemove + aCount-minCount
@@ -31,6 +31,6 @@ class Anagrams(in: InputStream) {
 }
 
 object Solution extends App {
-//  new Anagrams(new FileInputStream("src/main/resources/anagram.data"))
-  new Anagrams(System.in)
+  new Anagrams(new FileInputStream("src/main/resources/anagram.data"))
+  // new Anagrams(System.in)
 }
